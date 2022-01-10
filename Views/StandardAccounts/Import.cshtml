@@ -1,0 +1,71 @@
+﻿@model ImportCSV.Models.StandardAccount
+
+@{
+    ViewData["Title"] = "Import CSV Files";
+}
+
+<h1>Import CSV Files</h1>
+<hr />
+<div class="row">
+    <pre>
+    Source Account File #1 Format:
+    header: Identifier, Name, Type, Opened, Currency
+    data: 123|AbcCode,My Account,2,01-01-2018,CD
+
+    Note: only shows one record, but assume the file has multiple. In this format, the identifier column has both a numeric id and an account code, 
+    separated by the | character. Need to parse out the account code and output it.The CD currency is CAD. USD would be represented by US
+    The account types are #’s that mean:
+    1 = Trading        2 = RRSP        3 = RESP        4 = Fund
+    Column headers are shown above to explain the format and are in the actual file as well.
+
+    Source Account File #2 Format:
+    header: Name, Type, Currency, Custodian Code
+    data: My Account,RRSP,C,AbcCode
+    Note: only shows one record, but assume the file has multiple.
+    The Currency column has C for CAD and U for USD. Column headers are shown above to explain the format, but this file has no header record in the actual file.  
+    The Custodian Code is to become the Account Code in the standard output.
+
+    Account Standard Target File Format:
+    header: AccountCode,Name,Type,Open Date,Currency
+    data: AbcCode,My Account,RRSP,2018-01-01,CAD
+</pre>
+    <div class="col-md-4">
+        <form asp-controller="StandardAccounts" asp-action="Import" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Select import CSV file format</p>
+                    <select id="fileFormat" name="fileFormat">
+                        <option value="0">Standard Target File Format</option>
+                        <option value="1">#1 Format</option>
+                        <option value="2">#2 Format</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="checkbox" id="hasCSVHeader" name="hasCSVHeader" value="true">
+                    <label for="hasCSVHeader"> with CSV header</label><br>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Select a CSV file</p>
+                    <input class="form-control" id="upload" name="upload" type="file" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="btn btn-success" type="submit" value="Upload" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
