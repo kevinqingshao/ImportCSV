@@ -1,8 +1,7 @@
-I used ASP.NET MVC core to develop the code.
-There are a page. Import CSV page for uploading CSV files.
-Show Account List for displaying accounts list.
+I used ASP.NET MVC core to develop the a web application.
+There are two page. Import CSV page for uploading CSV files.Show Account List for displaying accounts list.
  
-I followd solid principles and used Strategy Design Pattern to create 
+I followed SOLID principles and used Strategy Design Pattern to create 
 ImportCSV\Services\ITransform.cs and ImportCSV\Services\Transform.cs, then did implementation 
 in contoller ImportCSV\Controllers\StandardAccountsController.cs
 
