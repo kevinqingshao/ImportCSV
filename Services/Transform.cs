@@ -6,7 +6,7 @@ using ImportCSV.Models;
 
 namespace ImportCSV.Services
 {
-    public class Type1Transform: ITransform
+    public class Type1Transform: ITransform<string[], StandardAccount>
     {
         public void Parse(string[] source, StandardAccount target)
         {
@@ -45,7 +45,7 @@ namespace ImportCSV.Services
         }
     }
 
-    public class Type2Transform : ITransform
+    public class Type2Transform : ITransform<string[], StandardAccount>
     {
         public void Parse(string[] source, StandardAccount target)
         {
@@ -67,7 +67,7 @@ namespace ImportCSV.Services
         }
     }
 
-    public class StandardTransform : ITransform
+    public class StandardTransform : ITransform<string[], StandardAccount>
     {
         public void Parse(string[] source, StandardAccount target)
         {
@@ -81,8 +81,8 @@ namespace ImportCSV.Services
 
     public class Transform
     {
-        private ITransform _transform;
-        public Transform(ITransform chosenCSVFile)
+        private ITransform<string[], StandardAccount> _transform;
+        public Transform(ITransform<string[], StandardAccount> chosenCSVFile)
         {
             this._transform = chosenCSVFile;
         }

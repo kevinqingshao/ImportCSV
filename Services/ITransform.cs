@@ -6,8 +6,8 @@ using ImportCSV.Models;
 
 namespace ImportCSV.Services
 {
-    public interface ITransform
+    public interface ITransform<T, U> where T : class where U : class
     {
-         void Parse(string[] source, StandardAccount target);
+         void Parse(T source, U target);
     }
 }
