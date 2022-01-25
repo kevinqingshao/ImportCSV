@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ImportCSV</name>
+    </assembly>
+    <members>
+        <member name="T:ImportCSV.Controllers.StandardAccountsAPIController">
+            <summary>
+            About this api controller.
+            </summary>
+        </member>
+        <member name="M:ImportCSV.Controllers.StandardAccountsAPIController.#ctor(ImportCSV.Data.ApplicationDbContext)">
+            <summary>
+            About StandardAccountsAPIController.
+            </summary>
+        </member>
+        <member name="M:ImportCSV.Controllers.StandardAccountsAPIController.GetStandardAccount(System.Int32)">
+            <summary>
+            Gets the list of all Standard Account.
+            </summary>
+            <returns>The list of Standard Account.</returns>
+        </member>
+        <member name="M:ImportCSV.Controllers.StandardAccountsAPIController.PutStandardAccount(System.Int32,ImportCSV.Models.StandardAccount)">
+            <summary>
+            PUT Standard Account.
+            </summary>
+        </member>
+        <member name="M:ImportCSV.Controllers.StandardAccountsAPIController.PostStandardAccount(ImportCSV.Models.StandardAccount)">
+            <summary>
+            Post Standard Account.
+            </summary>
+        </member>
+        <member name="M:ImportCSV.Controllers.StandardAccountsAPIController.DeleteStandardAccount(System.Int32)">
+            <summary>
+            DELETE Standard Account.
+            </summary>
+        </member>
+    </members>
+</doc>
